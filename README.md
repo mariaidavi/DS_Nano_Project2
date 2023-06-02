@@ -9,7 +9,8 @@ The project consists of the following files:
 1. **app**
    - `run.py`: The main script to run the web application for message classification.
 2. **data**
-   - It wasn't possible to upload the data to Git (the site doesn't allow).
+   - `messages.csv`: text data with the messages that will be used to train the model.
+   - `categories`: series of binary variables that identify each text message.
    - `process_data.py`: Script to load, preprocess, clean, and save the messages data into the SQLite database.
 
 3. **models**
