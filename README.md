@@ -11,7 +11,7 @@ The project consists of the following files:
 2. **data**
    - `messages.csv`: text data with the messages that will be used to train the model.
    - `categories`: series of binary variables that identify each text message.
-   - `etl_pipeline.py`: Script to load, preprocess, clean, and save the messages data into the SQLite database.
+   - `process_data.py`: Script to load, preprocess, clean, and save the messages data into the SQLite database.
 
 3. **models**
    - `train_classifier.py`: Script to load the preprocessed data from the SQLite database, train a classification model, and save the trained model as a pickle file.
@@ -20,7 +20,7 @@ The project consists of the following files:
 
 The project workflow involves the following steps:
 
-1. **Data Processing**: The `etl_pipeline.py` script is used to load and preprocess the messages data. It performs tasks such as data cleaning, feature extraction, and storing the processed data into a SQLite database. 
+1. **Data Processing**: The `process_data.py` script is used to load and preprocess the messages data. It performs tasks such as data cleaning, feature extraction, and storing the processed data into a SQLite database. 
 
 2. **Model Training**: The `train_classifier.py` script is responsible for loading the preprocessed data from the SQLite database, training a classification model using machine learning techniques, and saving the trained model as a pickle file.
 
@@ -28,6 +28,6 @@ The project workflow involves the following steps:
 
 To run the project, follow these steps:
 
-1. Execute:`python etl_pipeline.py messages.csv categories.csv DisasterResponse.db`
+1. Execute:`python process_data.py messages.csv categories.csv DisasterResponse.db`
 2. Execute: `python train_classifier.py DisasterResponse.db model.pkl`
 3. Execute: run the `python run.py`
