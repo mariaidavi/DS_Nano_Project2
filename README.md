@@ -11,7 +11,7 @@ The project consists of the following files:
 2. **data**
    - `messages.csv`: text data with the messages that will be used to train the model.
    - `categories`: series of binary variables that identify each text message.
-   - `process_data.py`: Script to load, preprocess, clean, and save the messages data into the SQLite database.
+   - `etl_pipeline.py`: Script to load, preprocess, clean, and save the messages data into the SQLite database.
 
 3. **models**
    - `train_classifier.py`: Script to load the preprocessed data from the SQLite database, train a classification model, and save the trained model as a pickle file.
