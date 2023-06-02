@@ -20,7 +20,7 @@ The project consists of the following files:
 
 The project workflow involves the following steps:
 
-1. **Data Processing**: The `process_data.py` script is used to load and preprocess the messages data. It performs tasks such as data cleaning, feature extraction, and storing the processed data into a SQLite database.
+1. **Data Processing**: The `etl_pipeline.py` script is used to load and preprocess the messages data. It performs tasks such as data cleaning, feature extraction, and storing the processed data into a SQLite database.
 
 2. **Model Training**: The `train_classifier.py` script is responsible for loading the preprocessed data from the SQLite database, training a classification model using machine learning techniques, and saving the trained model as a pickle file.
 
@@ -28,7 +28,7 @@ The project workflow involves the following steps:
 
 To run the project, follow these steps:
 
-1. Execute the `process_data.py` script to preprocess and store the messages data into the SQLite database.
+1. Execute the `etl_pipeline.py` script to preprocess and store the messages data into the SQLite database.
 
 2. Run the `train_classifier.py` script to train the classification model using the preprocessed data and save the trained model as a pickle file.
 
