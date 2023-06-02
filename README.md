@@ -29,5 +29,5 @@ The project workflow involves the following steps:
 To run the project, follow these steps:
 
 1. Execute:`python process_data.py messages.csv categories.csv DisasterResponse.db`
-2. Execute: `python train_classifier.py DisasterResponse.db model.pkl`
-3. Execute: run the `python run.py`
+2. Execute: `python train_classifier.py DisasterResponse.db classifier.pkl`
+3. Execute: `cd app` followed by `python run.py`
