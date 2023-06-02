@@ -28,7 +28,6 @@ The project workflow involves the following steps:
 
 To run the project, follow these steps:
 
-1. Execute the `etl_pipeline.py` script to preprocess and store the messages data into the SQLite database. Use the following command: python etl_pipeline.py messages.csv categories.csv DisasterResponse.db.
-2. Run the `train_classifier.py` script to train the classification model using the preprocessed data and save the trained model as a pickle file. Use the following command: python train_classifier.py DisasterResponse.db model.pkl.
-
-3. Finally, run the `run.py` script to start the web application and classify messages using the trained model. Use the following command: python app/run.py.
+1. Execute:`python etl_pipeline.py messages.csv categories.csv DisasterResponse.db`
+2. Execute: `python train_classifier.py DisasterResponse.db model.pkl`
+3. Execute: run the `python run.py`
