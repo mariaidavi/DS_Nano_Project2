@@ -49,21 +49,24 @@ def load_data(database_filepath):
 
     return X, Y, Y.columns
 
-
 def tokenize(text):
-    
     """
-    Tokenize and clean the given text by converting it to lowercase and removing non-alphanumeric characters.
+    Tokenize and preprocess the input text by performing tokenization, lemmatization, and lowercasing.
 
     Args:
-        text (pandas.Series or str): Text to be tokenized.
+        text (str): Input text to be tokenized.
 
     Returns:
-        pandas.Series: Cleaned tokens.
-
+        list: List of preprocessed tokens.
     """
-    
-    clean_tokens = text.apply(lambda x: x.lower()).apply(lambda x: re.sub(r'[^\w\s]', '', x))
+
+    tokens = word_tokenize(text)
+    lemmatizer = WordNetLemmatizer()
+
+    clean_tokens = []
+    for token in tokens:
+        clean_token = lemmatizer.lemmatize(token).lower().strip()
+        clean_tokens.append(clean_token)
 
     return clean_tokens
 
