@@ -28,6 +28,7 @@ The project workflow involves the following steps:
 
 To run the project, follow these steps:
 
-1. Execute:`python process_data.py messages.csv categories.csv DisasterResponse.db`
-2. Execute: `python train_classifier.py DisasterResponse.db classifier.pkl`
-3. Execute: `python run.py`
+1. Execute:`python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db`
+2. Execute: `models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
+
+After this, you will get a classifier.pkl file. This model allows you to deploy it as an API.
