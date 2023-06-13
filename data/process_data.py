@@ -52,7 +52,7 @@ def clean_data(df):
     df.drop('categories', axis=1, inplace=True)
     df =  df.merge(categories, left_index=True, right_index=True)
     
-    df = df[df['storm'] != 2].drop_duplicates()
+    df = df[df['related'] != 2]
     df = df.drop_duplicates()
 
     return df
