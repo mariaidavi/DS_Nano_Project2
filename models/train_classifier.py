@@ -24,6 +24,21 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import FunctionTransformer
 
 def load_data(database_filepath):
+    
+    """
+    Load data from an SQLite database and return the features, targets, and target column names.
+
+    Args:
+        database_filepath (str): Filepath of the SQLite database.
+
+    Returns:
+        tuple: A tuple containing the following:
+            - X (pandas.Series): Features (messages) from the database.
+            - Y (pandas.DataFrame): Targets from the database.
+            - target_columns (list): List of target column names.
+
+    """
+    
     engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql_table('messages_classification', engine)
     df.dropna(inplace=True)
@@ -36,12 +51,32 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    
+    """
+    Tokenize and clean the given text by converting it to lowercase and removing non-alphanumeric characters.
+
+    Args:
+        text (pandas.Series or str): Text to be tokenized.
+
+    Returns:
+        pandas.Series: Cleaned tokens.
+
+    """
+    
     clean_tokens = text.apply(lambda x: x.lower()).apply(lambda x: re.sub(r'[^\w\s]', '', x))
 
     return clean_tokens
 
 
 def build_model():
+        """
+    Build and return a machine learning model pipeline for text classification.
+
+    Returns:
+        sklearn.model_selection.GridSearchCV: Grid search model pipeline.
+
+    """
+        
     # Function to extract text length from a column
     def extract_text_length(column):
         return column.str.len().values.reshape(-1, 1)
@@ -69,6 +104,19 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """
+    Evaluate the performance of a machine learning model on test data.
+
+    Args:
+        model (sklearn.model_selection.GridSearchCV): Trained model to evaluate.
+        X_test (pandas.Series): Test features (messages).
+        Y_test (pandas.DataFrame): Test targets.
+        category_names (list): List of target category names.
+
+    Returns:
+        None
+
+    """
     y_pred = model.predict(X_test)
 
     for i, category in enumerate(category_names):
@@ -77,6 +125,17 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    """
+    Save the trained model to a file using pickle.
+
+    Args:
+        model: The trained model to be saved.
+        model_filepath (str): Filepath to save the model.
+
+    Returns:
+        None
+
+    """
     with open(model_filepath, 'wb') as f:
         pickle.dump(model, f)
 
